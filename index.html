@@ -1,33 +1,259 @@
+```html
 <!DOCTYPE html>
-
-<html>
+<html lang="th">
 
 <head>
 
-    <title>Portfolio ปฏิภาณ</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio ปฏิภาณ</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Tahoma", sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+    background:linear-gradient(to bottom right,#dff6ff,#4da6ff);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+/* กล่องหลัก */
+
+.container{
+
+    width:90%;
+    max-width:800px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+
+}
+
+
+
+/* เมนู */
+
+.menu{
+
+    margin-bottom:30px;
+
+}
+
+
+.menu a{
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#2196f3;
+
+    padding:12px 20px;
+
+    margin:5px;
+
+    border-radius:25px;
+
+    display:inline-block;
+
+    transition:0.3s;
+
+}
+
+
+
+.menu a:hover{
+
+    background:#0b5ed7;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/* รูป */
+
+.profile img{
+
+    width:200px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid #2196f3;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* ข้อความ */
+
+h1{
+
+    color:#0066cc;
+
+    font-size:35px;
+
+    margin-bottom:15px;
+
+}
+
+
+p{
+
+    color:#555;
+
+    font-size:20px;
+
+    margin:10px;
+
+}
+
+
+
+.line{
+
+    width:100px;
+
+    height:5px;
+
+    background:#2196f3;
+
+    margin:20px auto;
+
+    border-radius:10px;
+
+}
+
+
+
+.badge{
+
+    display:inline-block;
+
+    background:#e3f2fd;
+
+    color:#0066cc;
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    margin-top:15px;
+
+}
+
+
+
+@media(max-width:600px){
+
+    .menu a{
+
+        display:block;
+
+    }
+
+
+    h1{
+
+        font-size:25px;
+
+    }
+
+}
+
+
+</style>
+
 
 </head>
 
-<body bgcolor="#00CC99">
-    <a href=''profile.html'' >ประวัติส่วนตัว</a>
-    <a href=''Education.html'' >ประวัติการศึกษา</a>
-    <a href=''award.html'' >ผลงาน</a>
-    <a href=''contact.html'' >ช่องทางการติดต่อ</a>
-<img src="images/หมิว53.jpg">
 
 
-<br>นายปฏิภาณ ศรีประสิทธิ์</br>
+<body>
+
+
+<div class="container">
+
+
+<div class="menu">
+
+<a href="profile.html">ประวัติส่วนตัว</a>
+
+<a href="Education.html">ประวัติการศึกษา</a>
+
+<a href="award.html">ผลงาน</a>
+
+<a href="contact.html">ช่องทางการติดต่อ</a>
+
+</div>
 
 
 
-<p>นักเรียนชั้นม.6/1</p>
+<div class="profile">
 
 
+<img src="images/หมิว53.jpg" alt="รูปปฏิภาณ">
+
+
+<h1>นายปฏิภาณ ศรีประสิทธิ์</h1>
+
+
+<div class="line"></div>
+
+
+<p>นักเรียนชั้น ม.6/1</p>
 
 <p>โรงเรียนพานทอง</p>
 
+
+<div class="badge">
+
+Portfolio
+
+</div>
+
+
+</div>
+
+
+</div>
 
 
 </body>
 
 </html>
+```
