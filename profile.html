@@ -1,29 +1,287 @@
-<!DOCTYPE html>
 
-<html>
+<!DOCTYPE html>
+<html lang="th">
 
 <head>
-    <title>ประวัติส่วนตัว</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ประวัติส่วนตัว | ปฏิภาณ</title>
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Kanit',sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(135deg,#e3f2fd,#2196f3);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+/* กล่องหลัก */
+
+.container{
+
+    width:90%;
+
+    max-width:700px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+
+    text-align:center;
+
+    animation:show 1s ease;
+
+}
+
+
+@keyframes show{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* หัวข้อ */
+
+h1{
+
+    color:#0d47a1;
+
+    font-size:40px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.line{
+
+    width:120px;
+
+    height:5px;
+
+    background:#2196f3;
+
+    border-radius:20px;
+
+    margin:0 auto 30px;
+
+}
+
+
+
+/* ข้อมูล */
+
+.info{
+
+    text-align:left;
+
+}
+
+
+
+.card{
+
+    background:#eaf6ff;
+
+    margin:15px 0;
+
+    padding:18px 25px;
+
+    border-radius:20px;
+
+    color:#333;
+
+    font-size:20px;
+
+    border-left:6px solid #2196f3;
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateX(10px);
+
+    background:#d7edff;
+
+}
+
+
+
+b{
+
+    color:#0066cc;
+
+}
+
+
+
+/* ปุ่มกลับ */
+
+.back{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    text-decoration:none;
+
+    background:#1565c0;
+
+    color:white;
+
+    padding:12px 35px;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+}
+
+
+.back:hover{
+
+    background:#0d47a1;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+@media(max-width:600px){
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+
+    .card{
+
+        font-size:17px;
+
+    }
+
+}
+
+
+</style>
+
+
 </head>
+
+
+
 <body>
-<h1>ประวัติส่วนตัว</h1>
-<p>
-  ชื่อ นายปฏิภาณ ศรีประสิทธิ์ <br>
- ชื่อเล่น แม็ก <br>
-<p><b>วันเกิด :</b> 28/</p>
 
-<p><b>อายุ :</b> .......</p>
 
-<p><b>ที่อยู่ :</b> .......</p>
+<div class="container">
 
-<p><b>งานอดิเรก :</b> อ่านหนังสือ ฟังเพลง เขียนโปรแกรม</p>
+
+<h1>
+👤 ประวัติส่วนตัว
+</h1>
+
+
+<div class="line"></div>
+
+
+
+<div class="info">
+
+
+<div class="card">
+<b>ชื่อ :</b> นายปฏิภาณ ศรีประสิทธิ์
+</div>
+
+
+<div class="card">
+<b>ชื่อเล่น :</b> แม็ก
+</div>
+
+
+<div class="card">
+<b>วันเกิด :</b> 28/11/2551
+</div>
+
+
+<div class="card">
+<b>อายุ :</b> 17
+</div>
+
+
+
+
+<div class="card">
+<b>งานอดิเรก :</b> อ่านหนังสือ 🎧 ฟังเพลง 💻 เขียนโปรแกรม
+</div>
+
 
 </div>
 
+
+
+<a class="back" href="index.html">
+← กลับหน้าหลัก
+</a>
+
+
+
 </div>
 
+
 </body>
+
 </html>
-</p>
-</body>
-</html>
+
+
