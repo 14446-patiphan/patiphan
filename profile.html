@@ -1,4 +1,64 @@
-<body>
+<script>
+
+// สร้างดาว
+for(let i=0;i<80;i++){
+
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.animationDelay=Math.random()*2+"s";
+
+    document.body.appendChild(star);
+
+}
+
+// สร้างหิมะ
+function createSnow(){
+
+    const snow=document.createElement("div");
+
+    snow.className="snowflake";
+
+    const icon=["❄","❅","❆"];
+
+    snow.innerHTML=icon[Math.floor(Math.random()*3)];
+
+    snow.style.left=Math.random()*window.innerWidth+"px";
+    snow.style.fontSize=(10+Math.random()*20)+"px";
+    snow.style.opacity=Math.random();
+    snow.style.animationDuration=(5+Math.random()*5)+"s";
+
+    document.body.appendChild(snow);
+
+    let x=Math.random()*2-1;
+    let y=-30;
+
+    const move=setInterval(()=>{
+
+        y+=2;
+        x+=Math.sin(y/50)*0.2;
+
+        snow.style.top=y+"px";
+        snow.style.left=parseFloat(snow.style.left)+x+"px";
+        snow.style.transform="rotate("+y+"deg)";
+
+        if(y>window.innerHeight+40){
+
+            clearInterval(move);
+            snow.remove();
+
+        }
+
+    },20);
+
+}
+
+setInterval(createSnow,80);
+
+</script><body>
 
 <div class="container">
 
