@@ -1,170 +1,29 @@
-<script>
-
-// สร้างดาว
-for(let i=0;i<80;i++){
-
-    const star=document.createElement("div");
-
-    star.className="star";
-
-    star.style.left=Math.random()*100+"vw";
-    star.style.top=Math.random()*100+"vh";
-    star.style.animationDelay=Math.random()*2+"s";
-
-    document.body.appendChild(star);
-
-}
-
-// สร้างหิมะ
-function createSnow(){
-
-    const snow=document.createElement("div");
-
-    snow.className="snowflake";
-
-    const icon=["❄","❅","❆"];
-
-    snow.innerHTML=icon[Math.floor(Math.random()*3)];
-
-    snow.style.left=Math.random()*window.innerWidth+"px";
-    snow.style.fontSize=(10+Math.random()*20)+"px";
-    snow.style.opacity=Math.random();
-    snow.style.animationDuration=(5+Math.random()*5)+"s";
-
-    document.body.appendChild(snow);
-
-    let x=Math.random()*2-1;
-    let y=-30;
-
-    const move=setInterval(()=>{
-
-        y+=2;
-        x+=Math.sin(y/50)*0.2;
-
-        snow.style.top=y+"px";
-        snow.style.left=parseFloat(snow.style.left)+x+"px";
-        snow.style.transform="rotate("+y+"deg)";
-
-        if(y>window.innerHeight+40){
-
-            clearInterval(move);
-            snow.remove();
-
-        }
-
-    },20);
-
-}
-
-setInterval(createSnow,80);
-
-</script><body>
-
-<div class="container">
-
-<nav>
-
-<a href="index.html">🏠 หน้าแรก</a>
-
-<a href="Education.html">🎓 ประวัติการศึกษา</a>
-
-<a href="award.html">🏆 ผลงาน</a>
-
-<a href="contact.html">📞 ติดต่อ</a>
-
-</nav>
-
 <div class="profile">
 
-<img src="images/1783507008770.jpg" alt="รูปโปรไฟล์">
+    <img src="images/1783507008770.jpg" alt="รูปโปรไฟล์">
 
-<h1>👤 ประวัติส่วนตัว</h1>
+    <h1>ประวัติส่วนตัว</h1>
 
-<div class="line"></div>
+    <div class="line"></div>
 
-<div style="
-background:#eaf6ff;
-padding:18px 25px;
-margin:15px auto;
-border-left:6px solid #2196f3;
-border-radius:20px;
-font-size:20px;
-color:#333;
-max-width:600px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-transition:.3s;
-">
-<b style="color:#1565c0;">👤 ชื่อ :</b> นายปฏิภาณ ศรีประสิทธิ์
-</div>
+    <p class="subtitle"><strong>ชื่อ-นามสกุล:</strong> นายปฏิภาณ ศรีประสิทธิ์</p>
 
-<div style="
-background:#eaf6ff;
-padding:18px 25px;
-margin:15px auto;
-border-left:6px solid #2196f3;
-border-radius:20px;
-font-size:20px;
-color:#333;
-max-width:600px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-transition:.3s;
-">
-<b style="color:#1565c0;">😊 ชื่อเล่น :</b> แม็ก
-</div>
+    <p class="subtitle"><strong>ชื่อเล่น:</strong> (ใส่ชื่อเล่น)</p>
 
-<div style="
-background:#eaf6ff;
-padding:18px 25px;
-margin:15px auto;
-border-left:6px solid #2196f3;
-border-radius:20px;
-font-size:20px;
-color:#333;
-max-width:600px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-transition:.3s;
-">
-<b style="color:#1565c0;">🎂 วันเกิด :</b> 28 พฤศจิกายน 2551
-</div>
+    <p class="subtitle"><strong>วันเกิด:</strong> (ใส่วัน/เดือน/ปีเกิด)</p>
 
-<div style="
-background:#eaf6ff;
-padding:18px 25px;
-margin:15px auto;
-border-left:6px solid #2196f3;
-border-radius:20px;
-font-size:20px;
-color:#333;
-max-width:600px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-transition:.3s;
-">
-<b style="color:#1565c0;">🎉 อายุ :</b> 17 ปี
-</div>
+    <p class="subtitle"><strong>อายุ:</strong> (ใส่อายุ) ปี</p>
 
-<div style="
-background:#eaf6ff;
-padding:18px 25px;
-margin:15px auto;
-border-left:6px solid #2196f3;
-border-radius:20px;
-font-size:20px;
-color:#333;
-max-width:600px;
-box-shadow:0 10px 20px rgba(0,0,0,.1);
-transition:.3s;
-">
-<b style="color:#1565c0;">💻 งานอดิเรก :</b> 📚 อ่านหนังสือ 🎧 ฟังเพลง 💻 เขียนโปรแกรม
-</div>
+    <p class="subtitle"><strong>เพศ:</strong> ชาย</p>
 
-<div class="tag">
-MY PROFILE
-</div>
+    <p class="subtitle"><strong>สัญชาติ:</strong> ไทย</p>
+
+    <p class="subtitle"><strong>ศาสนา:</strong> (ใส่ศาสนา)</p>
+
+    <p class="subtitle"><strong>ที่อยู่:</strong> (ใส่ที่อยู่)</p>
+
+    <p class="school">กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6/1 โรงเรียนพานทอง</p>
+
+    <div class="tag">PERSONAL PROFILE</div>
 
 </div>
-
-</div>
-
-</body>
-
-
