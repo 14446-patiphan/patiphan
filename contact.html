@@ -22,6 +22,7 @@ body{
     justify-content:center;
     align-items:center;
     background:linear-gradient(135deg,#e3f2fd,#2196f3);
+    overflow:hidden;
 }
 
 .container{
@@ -33,6 +34,8 @@ body{
     box-shadow:0 20px 50px rgba(0,0,0,.2);
     text-align:center;
     animation:show 1s ease;
+    position:relative;
+    z-index:10;
 }
 
 @keyframes show{
@@ -50,6 +53,43 @@ h1{
     font-size:40px;
     color:#0d47a1;
     margin-bottom:20px;
+}
+
+/* ===== หิมะเกาะบนหัวข้อ ===== */
+
+.snow-title{
+    position:relative;
+    display:inline-block;
+    padding-top:15px;
+}
+
+.snow-title::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:0;
+    width:100%;
+    height:15px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:
+        10px 8px 0 #fff,
+        35px 5px 0 #fff,
+        60px 10px 0 #fff,
+        90px 7px 0 #fff,
+        120px 9px 0 #fff,
+        150px 6px 0 #fff;
+}
+
+.snow-title::after{
+    content:"❄ ❄ ❄ ❄ ❄";
+    position:absolute;
+    top:-28px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:18px;
+    text-shadow:0 0 10px white;
 }
 
 .line{
@@ -109,7 +149,33 @@ h1{
     transform:translateY(-5px);
 }
 
+/* ===== หิมะตก ===== */
+
+.snowflake{
+    position:fixed;
+    top:-30px;
+    color:#fff;
+    pointer-events:none;
+    user-select:none;
+    z-index:9999;
+    animation-name:fall;
+    animation-timing-function:linear;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:.7;
+    }
+}
+
 @media(max-width:600px){
+
     h1{
         font-size:30px;
     }
@@ -117,6 +183,7 @@ h1{
     .card{
         font-size:17px;
     }
+
 }
 </style>
 
@@ -126,7 +193,7 @@ h1{
 
 <div class="container">
 
-    <h1>📞 ติดต่อฉัน</h1>
+    <h1 class="snow-title">📞 ติดต่อฉัน</h1>
 
     <div class="line"></div>
 
@@ -145,10 +212,6 @@ h1{
             <a href="mailto:14446@phanthong.ac.th">14446@phanthong.ac.th</a>
         </div>
 
-       
-            </a>
-        </div>
-
         <div class="card">
             <b>📍 ที่อยู่ :</b> จังหวัดชลบุรี ประเทศไทย
         </div>
@@ -158,6 +221,39 @@ h1{
     <a href="index.html" class="back">← กลับหน้าหลัก</a>
 
 </div>
+
+<script>
+// สร้างหิมะตก
+function createSnow(){
+
+    const snow=document.createElement("div");
+
+    snow.className="snowflake";
+
+    const snowType=["❄","❅","❆"];
+
+    snow.innerHTML=snowType[Math.floor(Math.random()*snowType.length)];
+
+    snow.style.left=Math.random()*window.innerWidth+"px";
+
+    snow.style.fontSize=(10+Math.random()*20)+"px";
+
+    snow.style.animationDuration=(5+Math.random()*5)+"s";
+
+    snow.style.opacity=Math.random();
+
+    document.body.appendChild(snow);
+
+    setTimeout(()=>{
+        snow.remove();
+    },10000);
+
+}
+
+// ปล่อยหิมะทุก 120 มิลลิวินาที
+setInterval(createSnow,120);
+
+</script>
 
 </body>
 </html>
