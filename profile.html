@@ -27,3 +27,79 @@
     <div class="tag">PERSONAL PROFILE</div>
 
 </div>
+/* พื้นหลัง */
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0d47a1,#1976d2,#42a5f5,#e3f2fd);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* กล่องข้อมูล */
+.container{
+    width:90%;
+    max-width:900px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    padding:40px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    text-align:center;
+}
+
+/* หัวข้อ */
+h1{
+    color:#0d47a1;
+    font-size:42px;
+    margin-top:20px;
+    text-shadow:0 0 12px #64b5f6;
+}
+
+/* เส้นคั่น */
+.line{
+    width:160px;
+    height:5px;
+    margin:20px auto;
+    border-radius:20px;
+    background:linear-gradient(to right,#0d47a1,#42a5f5,#90caf9);
+}
+
+/* ข้อมูลส่วนตัว */
+.subtitle{
+    width:85%;
+    margin:12px auto;
+    padding:12px 18px;
+    text-align:left;
+    font-size:18px;
+    background:#f5fbff;
+    border-left:6px solid #2196f3;
+    border-radius:12px;
+    color:#333;
+    box-shadow:0 5px 12px rgba(33,150,243,.15);
+}
+
+.subtitle strong{
+    color:#0d47a1;
+}
+
+/* โรงเรียน */
+.school{
+    margin-top:20px;
+    color:#1565c0;
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* ป้ายด้านล่าง */
+.tag{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 35px;
+    border-radius:50px;
+    background:linear-gradient(90deg,#0d47a1,#2196f3);
+    color:white;
+    font-size:18px;
+    box-shadow:0 10px 25px rgba(33,150,243,.4);
+}
