@@ -1,105 +1,251 @@
-<div class="profile">
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <img src="images/1783507008770.jpg" alt="รูปโปรไฟล์">
+<title>ประวัติส่วนตัว | ปฏิภาณ</title>
 
-    <h1>ประวัติส่วนตัว</h1>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
 
-    <div class="line"></div>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Kanit',sans-serif;
+}
 
-    <p class="subtitle"><strong>ชื่อ-นามสกุล:</strong> นายปฏิภาณ ศรีประสิทธิ์</p>
-
-    <p class="subtitle"><strong>ชื่อเล่น:</strong> (ใส่ชื่อเล่น)</p>
-
-    <p class="subtitle"><strong>วันเกิด:</strong> (ใส่วัน/เดือน/ปีเกิด)</p>
-
-    <p class="subtitle"><strong>อายุ:</strong> (ใส่อายุ) ปี</p>
-
-    <p class="subtitle"><strong>เพศ:</strong> ชาย</p>
-
-    <p class="subtitle"><strong>สัญชาติ:</strong> ไทย</p>
-
-    <p class="subtitle"><strong>ศาสนา:</strong> (ใส่ศาสนา)</p>
-
-    <p class="subtitle"><strong>ที่อยู่:</strong> (ใส่ที่อยู่)</p>
-
-    <p class="school">กำลังศึกษาระดับชั้นมัธยมศึกษาปีที่ 6/1 โรงเรียนพานทอง</p>
-
-    <div class="tag">PERSONAL PROFILE</div>
-
-</div>
-/* พื้นหลัง */
 body{
     min-height:100vh;
-    background:linear-gradient(135deg,#0d47a1,#1976d2,#42a5f5,#e3f2fd);
     display:flex;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(135deg,#e3f2fd,#2196f3);
     overflow:hidden;
 }
 
-/* กล่องข้อมูล */
 .container{
     width:90%;
-    max-width:900px;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(15px);
-    border-radius:30px;
+    max-width:700px;
+    background:#fff;
     padding:40px;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
     text-align:center;
+    animation:show 1s ease;
+    position:relative;
+    z-index:10;
 }
 
-/* หัวข้อ */
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 h1{
+    font-size:40px;
     color:#0d47a1;
-    font-size:42px;
-    margin-top:20px;
-    text-shadow:0 0 12px #64b5f6;
+    margin-bottom:20px;
 }
 
-/* เส้นคั่น */
-.line{
-    width:160px;
-    height:5px;
-    margin:20px auto;
-    border-radius:20px;
-    background:linear-gradient(to right,#0d47a1,#42a5f5,#90caf9);
-}
-
-/* ข้อมูลส่วนตัว */
-.subtitle{
-    width:85%;
-    margin:12px auto;
-    padding:12px 18px;
-    text-align:left;
-    font-size:18px;
-    background:#f5fbff;
-    border-left:6px solid #2196f3;
-    border-radius:12px;
-    color:#333;
-    box-shadow:0 5px 12px rgba(33,150,243,.15);
-}
-
-.subtitle strong{
-    color:#0d47a1;
-}
-
-/* โรงเรียน */
-.school{
-    margin-top:20px;
-    color:#1565c0;
-    font-size:20px;
-    font-weight:bold;
-}
-
-/* ป้ายด้านล่าง */
-.tag{
+.snow-title{
+    position:relative;
     display:inline-block;
-    margin-top:25px;
-    padding:12px 35px;
-    border-radius:50px;
-    background:linear-gradient(90deg,#0d47a1,#2196f3);
+    padding-top:15px;
+}
+
+.snow-title::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:0;
+    width:100%;
+    height:15px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:
+        10px 8px 0 #fff,
+        35px 5px 0 #fff,
+        60px 10px 0 #fff,
+        90px 7px 0 #fff,
+        120px 9px 0 #fff,
+        150px 6px 0 #fff;
+}
+
+.snow-title::after{
+    content:"❄ ❄ ❄ ❄ ❄";
+    position:absolute;
+    top:-28px;
+    left:50%;
+    transform:translateX(-50%);
     color:white;
     font-size:18px;
-    box-shadow:0 10px 25px rgba(33,150,243,.4);
+    text-shadow:0 0 10px white;
 }
+
+.line{
+    width:120px;
+    height:5px;
+    background:#2196f3;
+    margin:0 auto 30px;
+    border-radius:20px;
+}
+
+.profile{
+    text-align:left;
+}
+
+.card{
+    background:#eaf6ff;
+    margin:15px 0;
+    padding:18px 25px;
+    border-radius:20px;
+    border-left:6px solid #2196f3;
+    font-size:20px;
+    color:#333;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateX(10px);
+    background:#d7edff;
+}
+
+.card b{
+    color:#1565c0;
+}
+
+.back{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 35px;
+    background:#1565c0;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.back:hover{
+    background:#0d47a1;
+    transform:translateY(-5px);
+}
+
+.snowflake{
+    position:fixed;
+    top:-30px;
+    color:#fff;
+    pointer-events:none;
+    user-select:none;
+    z-index:9999;
+    animation-name:fall;
+    animation-timing-function:linear;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-30px) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:.7;
+    }
+}
+
+@media(max-width:600px){
+    h1{
+        font-size:30px;
+    }
+
+    .card{
+        font-size:17px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="snow-title">👤 ประวัติส่วนตัว</h1>
+
+    <div class="line"></div>
+
+    <div class="profile">
+
+        <div class="card">
+            <b>👤 ชื่อ - สกุล :</b> นายปฏิภาณ ศรีประสิทธิ์
+        </div>
+
+        <div class="card">
+            <b>🎂 ชื่อเล่น :</b> แม็กซ์
+        </div>
+
+        <div class="card">
+            <b>🏫 กำลังศึกษา :</b> ชั้นมัธยมศึกษาปีที่ 5/1
+        </div>
+
+        <div class="card">
+            <b>🎯 ความใฝ่ฝัน :</b> อยากเป็นแพทย์
+        </div>
+
+        <div class="card">
+            <b>❤️ งานอดิเรก :</b> ฟังเพลง เล่นเกม ดูอนิเมะ ดูหนัง และเล่นกีฬา
+        </div>
+
+        <div class="card">
+            <b>⚽ กีฬาที่ชอบ :</b> ฟุตบอล และ แบดมินตัน
+        </div>
+
+        <div class="card">
+            <b>📍 ที่อยู่ :</b> จังหวัดชลบุรี ประเทศไทย
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back">← กลับหน้าหลัก</a>
+
+</div>
+
+<script>
+function createSnow(){
+
+    const snow=document.createElement("div");
+
+    snow.className="snowflake";
+
+    const snowType=["❄","❅","❆"];
+
+    snow.innerHTML=snowType[Math.floor(Math.random()*snowType.length)];
+
+    snow.style.left=Math.random()*window.innerWidth+"px";
+
+    snow.style.fontSize=(10+Math.random()*20)+"px";
+
+    snow.style.animationDuration=(5+Math.random()*5)+"s";
+
+    snow.style.opacity=Math.random();
+
+    document.body.appendChild(snow);
+
+    setTimeout(()=>{
+        snow.remove();
+    },10000);
+
+}
+
+setInterval(createSnow,120);
+</script>
+
+</body>
+</html>
