@@ -1,340 +1,146 @@
 
-<!DOCTYPE html>
-<html lang="th">
+<script>
 
-<head>
+// ==========================
+// สร้างดาวระยิบระยับ
+// ==========================
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+for(let i=0;i<60;i++){
 
-<title>ประวัติการศึกษา | ปฏิภาณ</title>
+    const star=document.createElement("div");
 
+    star.style.position="fixed";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.width="3px";
+    star.style.height="3px";
+    star.style.background="white";
+    star.style.borderRadius="50%";
+    star.style.opacity=Math.random();
+    star.style.boxShadow="0 0 10px white";
+    star.style.animation="twinkle "+(2+Math.random()*3)+"s infinite";
+    star.style.zIndex="-1";
+
+    document.body.appendChild(star);
+
+}
+
+// ==========================
+// สร้างหิมะตก
+// ==========================
+
+function snow(){
+
+    const s=document.createElement("div");
+
+    s.innerHTML=["❄","❅","❆"][Math.floor(Math.random()*3)];
+
+    s.style.position="fixed";
+    s.style.left=Math.random()*window.innerWidth+"px";
+    s.style.top="-30px";
+    s.style.fontSize=(10+Math.random()*18)+"px";
+    s.style.color="white";
+    s.style.pointerEvents="none";
+    s.style.zIndex="9999";
+    s.style.textShadow="0 0 10px white";
+
+    document.body.appendChild(s);
+
+    let x=Math.random()*2-1;
+    let y=-30;
+    let speed=1+Math.random()*2;
+
+    const move=setInterval(()=>{
+
+        y+=speed;
+        x+=Math.sin(y/50)*0.2;
+
+        s.style.top=y+"px";
+        s.style.left=parseFloat(s.style.left)+x+"px";
+        s.style.transform="rotate("+y+"deg)";
+
+        if(y>window.innerHeight+50){
+
+            clearInterval(move);
+            s.remove();
+
+        }
+
+    },20);
+
+}
+
+setInterval(snow,80);
+
+
+// ==========================
+// ข้อความเรืองแสง
+// ==========================
+
+document.querySelector("h1").style.animation="glow 2s infinite alternate";
+
+
+// ==========================
+// การ์ดเด้งเมื่อโหลด
+// ==========================
+
+document.querySelectorAll(".card").forEach((card,index)=>{
+
+    card.style.opacity="0";
+    card.style.transform="translateY(50px)";
+
+    setTimeout(()=>{
+
+        card.style.transition="1s";
+        card.style.opacity="1";
+        card.style.transform="translateY(0)";
+
+    },index*300);
+
+});
+
+</script>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+@keyframes twinkle{
 
+0%,100%{
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Kanit',sans-serif;
-}
-
-
-body{
-
-    min-height:100vh;
-
-    background:linear-gradient(135deg,#e3f2fd,#2196f3);
+opacity:.2;
+transform:scale(1);
 
 }
 
+50%{
 
-
-/* Navbar */
-
-nav{
-
-    width:100%;
-
-    background:white;
-
-    padding:20px 8%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
+opacity:1;
+transform:scale(2);
 
 }
 
+}
 
+@keyframes glow{
 
-nav h2{
+from{
 
-    color:#0d47a1;
-
-    font-size:28px;
+text-shadow:0 0 10px #2196f3;
 
 }
 
+to{
 
-
-ul{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:20px;
+text-shadow:
+0 0 15px white,
+0 0 30px #2196f3,
+0 0 45px #64b5f6;
 
 }
 
-
-
-ul li a{
-
-    text-decoration:none;
-
-    color:#1565c0;
-
-    font-weight:600;
-
-    padding:10px 18px;
-
-    border-radius:30px;
-
-    transition:.3s;
-
 }
-
-
-
-ul li a:hover{
-
-    background:#2196f3;
-
-    color:white;
-
-}
-
-
-
-/* Content */
-
-
-.container{
-
-    width:90%;
-
-    max-width:900px;
-
-    margin:50px auto;
-
-    background:white;
-
-    padding:40px;
-
-    border-radius:30px;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-
-    text-align:center;
-
-}
-
-
-
-h1{
-
-    color:#0d47a1;
-
-    font-size:42px;
-
-    margin-bottom:35px;
-
-}
-
-
-
-.line{
-
-    width:130px;
-
-    height:5px;
-
-    background:#2196f3;
-
-    margin:-20px auto 40px;
-
-    border-radius:20px;
-
-}
-
-
-
-/* Card */
-
-
-.card{
-
-    background:#eef8ff;
-
-    border-radius:25px;
-
-    padding:25px;
-
-    margin:25px 0;
-
-    text-align:left;
-
-    border-left:8px solid #2196f3;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.1);
-
-    transition:.4s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateY(-8px);
-
-    background:#dff2ff;
-
-}
-
-
-
-.card h2{
-
-    color:#0066cc;
-
-    font-size:28px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.card p{
-
-    color:#444;
-
-    font-size:20px;
-
-    margin:8px 0;
-
-}
-
-
-
-.icon{
-
-    font-size:35px;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:700px){
-
-    nav{
-
-        flex-direction:column;
-
-    }
-
-
-    ul{
-
-        flex-direction:column;
-
-        text-align:center;
-
-        margin-top:15px;
-
-    }
-
-
-    h1{
-
-        font-size:30px;
-
-    }
-
-
-    .card p{
-
-        font-size:17px;
-
-    }
-
-}
-
 
 </style>
 
-
-</head>
-
-
-
-<body>
-
-
-
-<nav>
-
-<h2>💙 Portfolio</h2>
-
-
-<ul>
-
-<li><a href="index.html">หน้าแรก</a></li>
-
-<li><a href="profile.html">ประวัติ</a></li>
-
-<li><a href="education.html">การศึกษา</a></li>
-
-<li><a href="award.html">ผลงาน</a></li>
-
-<li><a href="contact.html">ติดต่อ</a></li>
-
-</ul>
-
-
-</nav>
-
-
-
-<div class="container">
-
-
-<h1>🎓 ประวัติการศึกษา</h1>
-
-<div class="line"></div>
-
-
-
-<div class="card">
-
-<h2>📚 ระดับประถมศึกษา</h2>
-
-<p>🏫 โรงเรียนเตรียมบัณฑิต</p>
-
-<p>🏫 โรงเรียนวัดอู่ตะเภา</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h2>🎒 ระดับมัธยมศึกษา</h2>
-
-<p>🏫 โรงเรียนพานทอง</p>
-
-</div>
-
-
-
-</div>
-
-
-
 </body>
-
 </html>
-
-
