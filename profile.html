@@ -1,287 +1,132 @@
 
-<!DOCTYPE html>
-<html lang="th">
+<script>
+// =============================
+// เมาส์มีประกายแสง
+// =============================
+document.addEventListener("mousemove",function(e){
 
-<head>
+    const spark=document.createElement("div");
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    spark.style.position="fixed";
+    spark.style.left=e.clientX+"px";
+    spark.style.top=e.clientY+"px";
+    spark.style.width="8px";
+    spark.style.height="8px";
+    spark.style.background="white";
+    spark.style.borderRadius="50%";
+    spark.style.pointerEvents="none";
+    spark.style.boxShadow="0 0 15px #fff";
+    spark.style.zIndex="9999";
+    spark.style.transition="all .8s ease";
 
-<title>ประวัติส่วนตัว | ปฏิภาณ</title>
+    document.body.appendChild(spark);
 
+    setTimeout(()=>{
+        spark.style.opacity="0";
+        spark.style.transform="scale(3)";
+    },10);
 
-<style>
+    setTimeout(()=>{
+        spark.remove();
+    },800);
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+});
 
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Kanit',sans-serif;
-}
+// =============================
+// เปลี่ยนสีป้าย Portfolio
+// =============================
+const tag=document.querySelector(".tag");
 
+const colors=[
+"#0d47a1",
+"#1565c0",
+"#1e88e5",
+"#42a5f5",
+"#1976d2"
+];
 
-body{
+let c=0;
 
-    min-height:100vh;
+setInterval(()=>{
 
-    background:linear-gradient(135deg,#e3f2fd,#2196f3);
+    c++;
 
-    display:flex;
+    tag.style.background=colors[c%colors.length];
 
-    justify-content:center;
+},1000);
 
-    align-items:center;
 
-}
+// =============================
+// ข้อความชื่อกระพริบ
+// =============================
+const title=document.querySelector("h1");
 
+setInterval(()=>{
 
+    title.style.textShadow=
+    "0 0 10px #fff,0 0 20px #64b5f6,0 0 35px #2196f3";
 
-/* กล่องหลัก */
+    setTimeout(()=>{
 
-.container{
+        title.style.textShadow=
+        "0 0 10px #2196f3,0 0 20px white";
 
-    width:90%;
+    },500);
 
-    max-width:700px;
+},1500);
 
-    background:white;
 
-    padding:40px;
+// =============================
+// เมนูเด้งอัตโนมัติ
+// =============================
+document.querySelectorAll("nav a").forEach(btn=>{
 
-    border-radius:30px;
+    btn.addEventListener("mouseenter",()=>{
 
-    box-shadow:0 20px 50px rgba(0,0,0,0.2);
+        btn.animate([
+            {transform:"translateY(0)"},
+            {transform:"translateY(-10px)"},
+            {transform:"translateY(-6px)"}
+        ],{
+            duration:400
+        });
 
-    text-align:center;
+    });
 
-    animation:show 1s ease;
+});
 
-}
 
+// =============================
+// รูปโปรไฟล์หมุนเมื่อคลิก
+// =============================
+const img=document.querySelector(".profile img");
 
-@keyframes show{
+img.addEventListener("click",()=>{
 
-    from{
+    img.animate([
+        {transform:"rotate(0deg)"},
+        {transform:"rotate(360deg)"}
+    ],{
+        duration:1000
+    });
 
-        opacity:0;
+});
 
-        transform:translateY(40px);
 
-    }
+// =============================
+// พื้นหลังเปลี่ยนเฉดสีอัตโนมัติ
+// =============================
+let deg=135;
 
-    to{
+setInterval(()=>{
 
-        opacity:1;
+    deg++;
 
-        transform:translateY(0);
+    document.body.style.background=
+    `linear-gradient(${deg}deg,#0d47a1,#2196f3,#e3f2fd)`;
 
-    }
+},80);
 
-}
-
-
-
-/* หัวข้อ */
-
-h1{
-
-    color:#0d47a1;
-
-    font-size:40px;
-
-    margin-bottom:25px;
-
-}
-
-
-
-.line{
-
-    width:120px;
-
-    height:5px;
-
-    background:#2196f3;
-
-    border-radius:20px;
-
-    margin:0 auto 30px;
-
-}
-
-
-
-/* ข้อมูล */
-
-.info{
-
-    text-align:left;
-
-}
-
-
-
-.card{
-
-    background:#eaf6ff;
-
-    margin:15px 0;
-
-    padding:18px 25px;
-
-    border-radius:20px;
-
-    color:#333;
-
-    font-size:20px;
-
-    border-left:6px solid #2196f3;
-
-    transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-    transform:translateX(10px);
-
-    background:#d7edff;
-
-}
-
-
-
-b{
-
-    color:#0066cc;
-
-}
-
-
-
-/* ปุ่มกลับ */
-
-.back{
-
-    display:inline-block;
-
-    margin-top:30px;
-
-    text-decoration:none;
-
-    background:#1565c0;
-
-    color:white;
-
-    padding:12px 35px;
-
-    border-radius:50px;
-
-    transition:.3s;
-
-}
-
-
-.back:hover{
-
-    background:#0d47a1;
-
-    transform:translateY(-5px);
-
-}
-
-
-
-@media(max-width:600px){
-
-    h1{
-
-        font-size:30px;
-
-    }
-
-
-    .card{
-
-        font-size:17px;
-
-    }
-
-}
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-<div class="container">
-
-
-<h1>
-👤 ประวัติส่วนตัว
-</h1>
-
-
-<div class="line"></div>
-
-
-
-<div class="info">
-
-
-<div class="card">
-<b>ชื่อ :</b> นายปฏิภาณ ศรีประสิทธิ์
-</div>
-
-
-<div class="card">
-<b>ชื่อเล่น :</b> แม็ก
-</div>
-
-
-<div class="card">
-<b>วันเกิด :</b> 28/11/2551
-</div>
-
-
-<div class="card">
-<b>อายุ :</b> 17
-</div>
-
-
-
-
-<div class="card">
-<b>งานอดิเรก :</b> อ่านหนังสือ 🎧 ฟังเพลง 💻 เขียนโปรแกรม
-</div>
-
-
-</div>
-
-
-
-<a class="back" href="index.html">
-← กลับหน้าหลัก
-</a>
-
-
-
-</div>
-
-
-</body>
-
-</html>
-
+</script>
 
